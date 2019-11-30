@@ -72,7 +72,7 @@ struct Leaf {
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    let dmenu = &std::env::args().nth(1).unwrap();
+    let dmenu = &std::env::args().nth(1).unwrap_or("dmenu".to_owned());
     let out = Command::new("i3-msg").args(&["-t", "get_tree"]).output()?;
     let tree: I3Tree = serde_json::from_reader(out.stdout.as_slice())?;
     let tree: Node = tree.into();
