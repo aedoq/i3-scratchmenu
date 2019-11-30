@@ -1,5 +1,5 @@
 [package]
-name = "scratchmenu"
+name = "i3-scratchmenu"
 version = "0.1.0"
 authors = ["aedoq <aedoq@protonmail.com>"]
 edition = "2018"
