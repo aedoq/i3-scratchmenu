@@ -3,6 +3,6 @@ Lists all applications currently in your i3 scratchpad using dmenu and shows the
 
 ## Usage
 ```
-scratchmenu [<dmenu command>]
+i3-scratchmenu [<dmenu command>]
 ```
 `<dmenu command>` defaults to `dmenu`
