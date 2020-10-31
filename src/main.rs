@@ -1,5 +1,3 @@
-#![feature(option_result_contains)]
-
 use serde::{Deserialize, Serialize};
 use std::{
     error::Error,
@@ -56,7 +54,7 @@ impl Node {
     }
 
     fn find_name(self, name: &str) -> Option<Node> {
-        if self.name.contains(&name) {
+        if self.name.as_deref() == Some(name) {
             Some(self)
         } else {
             self.children.into_iter().find_map(|n| n.find_name(name))
