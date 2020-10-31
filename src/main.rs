@@ -10,7 +10,7 @@ struct I3Tree {
     window: Option<u64>,
     r#type: String,
     name: Option<String>,
-    nodes: Vec<I3Tree>,
+    nodes: Option<Vec<I3Tree>>, //i3 outputs nodes:[] if there are none but sway doesn't
     floating_nodes: Vec<I3Tree>,
 }
 
@@ -24,7 +24,7 @@ struct Node {
 
 impl From<I3Tree> for Node {
     fn from(mut tree: I3Tree) -> Self {
-        let mut children = tree.nodes;
+        let mut children = tree.nodes.unwrap_or_default();
         children.append(&mut tree.floating_nodes);
         Node {
             id: tree.window,
